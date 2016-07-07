@@ -1,0 +1,11 @@
+///parent - call when the frame or its container div is visible and not hidden
+var i_frame = window.frames.xyz_iframe;
+i_frame.hx();
+
+
+///child
+function hx()
+{
+    var hx = $(document).height();
+    parent.document.getElementById("xyz_iframe").height = hx+10;
+}

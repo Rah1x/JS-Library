@@ -1,0 +1,4 @@
+var child_frame = window.frames.xyz_iframe;
+
+function load_fun(){child_frame.hx();};
+child_frame.onload = function(){load_fun()};
