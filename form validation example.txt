@@ -1,0 +1,110 @@
+function check_req_frm()
+{
+    var err = '';
+    
+
+    if(document.getElementById('vr_cost').value=='')
+    {
+        err += 'Please enter the Cost of of Custom Verse !\r\n';
+    }
+    else if(document.getElementById('vr_cost').value.search(/^[0-9]{0,}[.]{0,1}[0-9]{0,}$/)<0)
+    {
+        err += 'The Cost of of Custom Verse can be numberic only [without space, comma, etc] !\r\n';
+    }
+
+    
+    //check image
+    <?php
+    if($id==0)
+    {
+        ?>
+        if(document.getElementById('gr_img').value=='')
+        {
+            err += 'Please select a Greeting Image !\r\n';
+        }
+        else if(!/(\.gif|\.jpg|\.jpeg|\.png)$/i.test(document.getElementById('gr_img').value))
+        {
+    	   err += 'The Greeting Image must be in JPG, GIF or PNG format !!\r\n';
+        }
+        <?php
+    }
+    else
+    {
+        ?>
+        if((document.getElementById('page_header').value!='')  &&  (!/(\.gif|\.jpg|\.jpeg|\.png)$/i.test(document.getElementById('page_header').value)))
+        {
+    	   err += 'The Category Header/Banner must be in JPG, GIF or PNG format !!\r\n';
+        }
+        <?php
+    }
+    ?>
+    //--
+
+
+
+    //check Price-Quantity table
+    var f2 = document.getElementById('f2');
+    var qty = f2.elements['quantity[]'];
+    var pri = f2.elements['price_per_unit[]'];
+    var tbl_length = qty.length;
+
+    $em_chk = 0;
+    for(i=0; i<tbl_length; i++)
+    {
+        if((qty[i].value=='') || (pri[i].value=='')){
+        $em_chk = 1;
+        break;
+        }
+        else if((qty[i].value.search(/^[0-9]{1,}$/)<0) || (pri[i].value.search(/^[0-9]{0,}[.]{0,1}[0-9]{0,}$/)<0))
+        {
+        $em_chk = 2;
+        break;
+        }
+    }
+
+
+    if($em_chk==1)
+    {
+        err += 'Please fill the Price-Quantity Table !\r\n';
+    }
+
+    if($em_chk==2)
+    {
+        err += 'The Price-Quantity Table can take numberic values only !\r\n';
+    }
+    //--
+
+	
+    //check Color table - CHECK BOXES
+    var f2 = document.getElementById('f2');
+    var vr_colors = f2.elements['vr_colors[]'];
+    var tbl_length = vr_colors.length;
+
+    $em_chk = new Array();
+    for(i=0; i<tbl_length; i++)
+    {
+        $em_chk[$em_chk.length] = vr_colors[i].checked;
+    }
+
+    if(in_array(true, $em_chk)==false)
+    {
+        err += 'Please select atleast 1 Available Colors !\r\n';
+    }
+    //--
+	
+    
+
+    if(err!='')
+    {
+        alert("Please clear the following ERROR(s):\r\n\r\n"+err);
+        return false;
+    }
+    else
+    {
+       document.getElementById('req_frm').submit();
+       return true;
+	}
+
+    return false;
+
+}//end func......
