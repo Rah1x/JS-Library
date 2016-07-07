@@ -1,0 +1,20 @@
+function findPos(obj)
+{
+    var curleft = curtop = 0;
+    if(obj.offsetParent) {
+    do{
+        curleft += obj.offsetLeft;
+        curtop += obj.offsetTop;
+    }while (obj = obj.offsetParent);
+    }
+
+    ret_ar=[];
+    ret_ar['curleft'] = parseInt(curleft);
+    ret_ar['curtop'] = parseInt(curtop);
+
+    //return [curleft,curtop];
+    return ret_ar;
+}
+
+location_div=findPos(document.getElementById('menu_bar'));
+//alert(location_div['curleft']);

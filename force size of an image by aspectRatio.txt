@@ -1,0 +1,48 @@
+if(imgPreloader.width<=imgPreloader.height)
+{
+    var aspectRatio = imgPreloader.width / imgPreloader.height;
+
+    imgPreloader.height = set_fix_height;
+    $('lightboxImage').height = imgPreloader.height;
+
+    imgPreloader.width = set_fix_height * aspectRatio;
+}
+else
+{
+    var aspectRatio = imgPreloader.height / imgPreloader.width;
+
+    imgPreloader.width = set_fix_width;
+    $('lightboxImage').width = imgPreloader.width;
+
+    imgPreloader.height = set_fix_width * aspectRatio;
+}
+
+=======================
+
+
+if($obj.w<=$obj.h)
+{
+    if($obj.h<1000)
+    {
+        var aspectRatio = $obj.w / $obj.h;
+
+        $obj.h = 1000;
+        $obj.w = 1000 * aspectRatio;
+
+        this.node.style.height = '1000px';
+        this.node.style.width = (1000 * aspectRatio)+'px';
+    }
+}
+else
+{
+    if($obj.w<1000)
+    {
+        var aspectRatio = $obj.h / $obj.w;
+
+        $obj.w = 1000;
+        $obj.h = 1000 * aspectRatio;
+
+        this.node.style.width = '1000px';
+        this.node.style.height = (1000 * aspectRatio)+'px';
+    }
+}

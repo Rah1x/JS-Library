@@ -1,0 +1,16 @@
+if(document.addEventListener) {   // Mozilla, Opera, Webkit are all happy with this
+    document.addEventListener("DOMContentLoaded", function()
+    {
+        document.removeEventListener( "DOMContentLoaded", arguments.callee, false);
+        dotiXD9();
+    }, false);
+}
+else if(document.attachEvent) {   // IE is different...
+    document.attachEvent("onreadystatechange", function()
+    {
+        if(document.readyState === "complete") {
+            document.detachEvent("onreadystatechange", arguments.callee);
+            dotiXD9();
+        }
+    });
+}

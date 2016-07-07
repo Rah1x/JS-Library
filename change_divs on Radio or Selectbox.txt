@@ -1,0 +1,31 @@
+//element_id = Div/Span etc to Toggle (hide/Show)
+//val = Toggle on this value if select from dropdown or Radio
+//chk_to_hide = Checking Field's Data (the dropdown or Radio to hide)
+function change_option(element_id, val, chk_to_hide)
+{
+    var is_visible = false;
+
+    if(typeof(chk_to_hide) == "object")
+    {
+        is_visible = in_array(val, chk_to_hide, false);
+    }
+    else
+    {
+        if(val==chk_to_hide)
+        is_visible = true;
+    }
+
+
+    //if(id=='is_available')
+    //{
+        if(is_visible!=false)
+        {
+            document.getElementById(element_id+'_div').style.display='none';
+        }
+        else
+        {
+            document.getElementById(element_id+'_div').style.display='';
+        }
+    //}
+
+}//end func...

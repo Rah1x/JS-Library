@@ -1,0 +1,20 @@
+function getComputedWidth(theElt)
+{
+    var is_ie = false;
+    if(navigator.userAgent.indexOf('MSIE')>=0)
+    is_ie = true;
+
+    if(is_ie){
+    tmphght = document.getElementById(theElt).offsetWidth;
+    }
+    else
+    {
+        docObj = document.getElementById(theElt);
+        var tmphght1 = document.defaultView.getComputedStyle(docObj, "").getPropertyValue("width");
+        tmphght = tmphght1.split('px');
+        tmphght = tmphght[0];
+    }
+    
+    return tmphght;
+    
+}//end func..........

@@ -1,0 +1,22 @@
+<?php
+$editmsg = "<span class='message' id='errr' style='position:absolute; z-index:200; text-align:center; font-style:normal; font-weight:normal;'><font color='darkgreen'>Action successfully performed</font></span>";
+?>
+<script type="text/javascript">
+var t1=setTimeout(function ajaxTimeout(){
+document.getElementById('errr').style.display='none';
+},6000);
+</script>
+
+=====================================
+function time_id(div_id, type, time)
+{
+    var t1=setTimeout(function ajaxTimeout(){
+    if(type=='div'){
+    //document.getElementById(div_id).style.display='none';
+    $('#'+div_id).fadeOut('slow');
+    }
+    else if(type=='field'){
+    document.getElementById(div_id).value='';
+    }
+    },time);
+}//end func...........

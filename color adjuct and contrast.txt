@@ -1,0 +1,84 @@
+===========================
+function black_or_white(hex_clr)
+{
+    var RGB = [];
+    var R = parseInt(hex_clr.substring(1,3), 16);
+    var G = parseInt(hex_clr.substring(3,5), 16);
+    var B = parseInt(hex_clr.substring(5,7), 16);
+    RGB = [R, G, B];
+
+    var triplet = RGB;
+    var newtriplet = [];
+
+    // black or white:
+    var total = 0; for (var i=0; i<triplet.length; i++) { total += triplet[i]; }
+
+    if(total > (3*256/2)) {
+    newtriplet = [000,000,000];
+    } else {
+    newtriplet = [255,255,255];
+    }
+
+    var new_rgb_numb = newtriplet.join(", ");
+    var new_rgb = "rgb("+new_rgb_numb+")";
+
+    var new_hex = '#'+colorToHex(new_rgb);
+
+    return new_hex;
+}//end func....
+
+
+function colorToHex(c) {
+var m = /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/.exec(c);
+return m ? (1 << 24 | m[1] << 16 | m[2] << 8 | m[3]).toString(16).substr(1) : c;
+}//end func....
+
+===========================
+/// NEED HTML 5 WITH CANVAS ALLOWED
+function getAverageRGB(imgEl)
+{
+
+    var blockSize = 5, // only visit every 5 pixels
+        defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = {r:0,g:0,b:0},
+        count = 0;
+
+    if (!context) {
+        return defaultRGB;
+    }
+
+    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+    context.drawImage(imgEl, 0, 0);
+
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        /* security error, img on diff domain */alert('x');
+        return defaultRGB;
+    }
+
+    length = data.data.length;
+
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+
+    // ~~ used to floor values
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+
+    return rgb;
+
+}//end func....
+===========================

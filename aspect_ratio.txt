@@ -1,0 +1,26 @@
+/** Determine Aspect Ration between width and Height **/
+function aspct_rto(width, height)
+{
+    width = parseFloat(width);
+    height = parseFloat(height);
+
+    max_width = (width<345)? width:345;
+    max_height = (height<200)? height:200;
+
+    modwidth = modheight = 'auto';
+
+    if(width>=height)
+    {
+		modwidth=max_width;
+		modheight=(height*modwidth)/width;
+	}
+    else
+    {
+		modheight=max_height;
+		modwidth=(width*modheight)/height;
+	}
+
+    //alert(dump(width));
+    return {'width':modwidth, 'height':modheight};
+
+}//end func..

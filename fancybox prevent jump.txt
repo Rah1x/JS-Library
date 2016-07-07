@@ -1,0 +1,5 @@
+/** Prevent page jump on fancybox link clicks **/
+$('.open-comment-form').fancybox({
+	'hideOnContentClick': false,
+    'helpers':{'overlay':{'locked': false}}
+});
