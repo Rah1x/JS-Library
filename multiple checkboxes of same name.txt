@@ -1,0 +1,43 @@
+var form = document.getElementById('c1_f0');
+var sig_chk = 'inside_sig_selected_'+id;
+var sig_chk_all = document.getElementsByName(sig_chk);
+
+if (sig_chk_all[0].type=='checkbox')
+var chk = sig_chk_all[0].checked;
+
+
+for(var i=0; i<sig_chk_all.length; i++)
+{
+    if (sig_chk_all[i].type=='checkbox')
+    {
+        if (chk==false)
+        {
+            sig_chk_all[i].checked=true;
+        }
+        else
+        {
+            sig_chk_all[i].checked=false;
+        }
+    }
+}
+
+=========================================================
+
+
+function clear_all()
+{
+    var boxes = document.getElementsByTagName('input');
+
+    for(var i=0; i<boxes.length; i++)
+    {
+        if (boxes[i].type=='checkbox')
+        {
+            boxes[i].checked=false;
+        }
+    }
+
+    sel_sig_tbl = new Array();
+
+    parent.sel_sig(sel_sig_tbl);
+
+}//end func....

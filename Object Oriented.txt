@@ -1,0 +1,27 @@
+<script>
+var a1;
+var a2;
+
+function cl(e1, e2)
+{
+    //this.prototype.setit = function(e1, e2){
+    this.a1 = e1;
+    this.a2 = e2;
+    //}
+
+    this.getit = function(){
+    return this.getit2();
+    }
+
+    this.getit2 = function(){
+    return this.a1;
+    }
+}
+
+var obj1 = new cl('111', '222');
+x = obj1.getit();
+
+var obj2 = new cl('111X', '222X');
+y = obj2.getit();
+alert(x+'_'+y);
+</script>

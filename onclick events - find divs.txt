@@ -1,0 +1,63 @@
+var theElem = (evt.srcElement)?evt.srcElement:evt.target;
+while(theElem!=null)
+{
+    //alert(theElem.id);
+    if(
+    (theElem.id.search('del_div_')>=0) ||
+    (theElem.id.search('edit_div_')>=0) ||
+    (theElem.id.search('status_div_')>=0)
+    )
+    {
+        return true;
+    }
+    theElem = theElem.offsetParent;
+}//end while..
+
+
+===========================================
+function monitorClick2(e)
+{
+	var evt = (e)?e:event;
+	var theElem = (evt.srcElement)?evt.srcElement:evt.target;
+	var block_chk2=0;
+	while(theElem!=null)
+	{
+		  //alert(theElem.id);
+		  if( (theElem.id == 'language_div') ||
+		  (theElem.id == 'lanContent') ||
+		  (theElem.id == 'lan-drop') ||
+		  (theElem.id == 'lang_arrow') ||
+		  (theElem.id == 'current_lang') ||
+		  (theElem.id == 'current_lang_name') ||
+		  (theElem.id == 'lang_ul')
+		  )
+		  {
+				block_chk2 = 1;
+				break;
+		  }
+		  else
+		  {
+			  block_chk2 = 0;
+		  }
+
+		  theElem = theElem.offsetChild;
+	}//end while..
+
+	//alert(block_chk);
+	if(block_chk2==0)
+	{
+		document.getElementById('language_div').style.display='none';
+	}
+	return true;
+
+}///end func....
+
+
+
+<!-- EVENT LISTNERS -->
+<script language="javascript">
+if(navigator.appName.search(/Microsoft/)>=0)
+	document.attachEvent('onclick', monitorClick2);
+else
+	document.addEventListener('click', monitorClick2, false);
+</script>
