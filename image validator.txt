@@ -1,0 +1,32 @@
+//example 1
+if(form.cat_image.value != "")
+{
+    img_val = form.cat_image.value;
+    ext_t = img_val.split('.');
+    ext = ext_t[(ext_t.length-1)];
+    ext = ext.toLowerCase();
+    if(ext!='gif' && ext!='png' && ext!='jpg' && ext!='jpeg')
+    {
+        form.extra.value='Please select an Image in JPG, GIF or PNG format !';
+		form.cat_image.focus();
+		return false;
+    }
+}
+
+===============================
+
+//example 2
+function validateFileExtension(fld)
+{
+    if(!/(\.bmp|\.gif|\.jpg|\.jpeg|\.png)$/i.test(fld.value)) {
+	alert("Please select an Image in JPG, GIF or PNG format !");
+	document.getElementById("is_image").value=0;
+	fld.focus();
+	return false;
+    }
+    else{
+	document.getElementById("is_image").value=1;
+	return true;
+	}
+
+}//end func.....

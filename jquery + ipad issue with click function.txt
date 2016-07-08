@@ -1,0 +1,8 @@
+//use
+.bind("click touchstart", function(){
+});
+
+//instead of:
+
+.click(function(){
+});

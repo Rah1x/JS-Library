@@ -1,0 +1,50 @@
+function getCheckedValue(radioObj)
+{
+	if(!radioObj)
+		return "";
+	var radioLength = radioObj.length;
+	if(radioLength == undefined)
+		if(radioObj.checked)
+			return radioObj.value;
+		else
+			return "";
+	for(var i = 0; i < radioLength; i++) {
+		if(radioObj[i].checked) {
+			return radioObj[i].value;
+		}
+	}
+	return "";
+}//end form.....
+
+==============================================
+/////For checkbox values in array (i.e. name="abc[]")
+function getCheckedValue(radioObj)
+{
+	if(!radioObj)
+	return "";
+
+	var radioLength = radioObj.length;
+	if(radioLength == undefined) //i.e. not array
+    {
+		if(radioObj.checked)
+		return radioObj.value;
+		else
+		return "";
+    }
+
+    var ret = new Array();
+    for(var i=0; i<radioLength; i++)
+    {
+		if(radioObj[i].checked)
+        {
+			ret[ret.length] = radioObj[i].value;
+		}
+	}
+    return ret.join(',');
+
+    return "";
+}//end form.....
+==============================================
+
+[USAGE]
+var insu = getCheckedValue(form.elements['Marine_Insurance_Requested']);

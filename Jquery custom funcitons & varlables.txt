@@ -1,0 +1,10 @@
+[custom variables]
+$(document).ready(function() {
+$.windowsize = $(window).width();
+});
+
+==============================
+[custom functions]
+$(document).ready(function() {
+$.myFunc = function(){};
+});

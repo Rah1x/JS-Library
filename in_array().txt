@@ -1,0 +1,32 @@
+// JS equivalent of PHP's in_array
+function in_array (needle, haystack, argStrict)
+{
+    // *     example 1: in_array('van', ['Win', 'van', 'hello World']);
+    // *     returns 1: true
+    // *     example 2: in_array('work', {0:'Win', work:'van', 1:'World'});
+    // *     returns 2: false
+    // *     example 3: in_array(1, ['1', '2', '3']);
+    // *     returns 3: true
+    // *     example 3: in_array(1, ['1', '2', '3'], false);
+    // *     returns 3: true
+    // *     example 4: in_array(1, ['1', '2', '3'], true);
+    // *     returns 4: false
+    var key = '', strict = !!argStrict;
+
+    if (strict)
+    {
+        for (key in haystack) {
+            if (haystack[key] === needle) {
+                return true;
+            }
+        }
+    } else
+    {
+        for (key in haystack) {
+            if (haystack[key] == needle) {
+            return true;
+            }
+        }
+    }
+    return false;
+}//end func...

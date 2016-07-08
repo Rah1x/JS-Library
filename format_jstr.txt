@@ -1,0 +1,17 @@
+function format_jstr(in_s)
+{
+    var out_s = in_s;
+    out_s = encodeURIComponent(out_s);
+    return out_s;
+}//end func....
+
+============================
+function r_format_jstr(in_s)
+{
+    var out_s = in_s;
+    out_s = out_s.replace('&lt;', '<');
+	out_s = out_s.replace('&gt;', '>');
+	out_s = out_s.replace('&quot;', '"');
+	out_s = out_s.replace('&#39;', "'");
+    return out_s;
+}//end func....

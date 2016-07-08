@@ -1,0 +1,18 @@
+function sel_width(idr, def_width, state)
+{
+    if(browser.indexOf('MSIE')>=0)
+    {
+        if(state==1){
+        idr.style.width='auto';
+        idr.style.position='absolute';
+        idr.style.marginTop='-10px';
+        }
+
+        if(state==0){
+        idr.style.width=def_width+'px';
+        idr.style.marginTop='auto';
+        idr.style.position='static';
+        }
+    }//end if IE....
+
+}//end func....
