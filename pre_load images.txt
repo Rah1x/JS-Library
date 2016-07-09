@@ -1,0 +1,12 @@
+<style>
+.preloadX{width:1px; height:1px; margin-top:-1px; overflow:hidden;}
+.hideY{width:1px; height:1px; background-color:white;}
+</style>
+
+<div class='preloadX'>
+<div class='hideY'></div>
+<img src="images/screen1.jpg"/>
+<img src="images/screen2.jpg"/>
+<img src="images/screen3.jpg"/>
+<img src="images/screen4.jpg"/>
+</div>
