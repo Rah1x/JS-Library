@@ -1,0 +1,6 @@
+// Prevent Default
+$('.prevent_def').each(function(){
+    $(this).click(function(event){
+    event.preventDefault();
+    });
+});
