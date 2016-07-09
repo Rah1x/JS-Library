@@ -1,0 +1,18 @@
+function img_process(new_src, current_image_id)
+{
+    var t = new Image();
+    t.src = new_src;
+
+    // show loading      
+    var img_element = document.getElementById('imag_'+current_image_id);
+    img_element.src = 'images/loading.gif';
+
+    // process after image has been loaded
+    t.onload = function (){
+    //t.width;
+    //t.height;
+
+    img_element.src = new_src;
+    }
+
+}//end func....

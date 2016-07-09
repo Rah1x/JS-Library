@@ -1,0 +1,1 @@
+document.getElementById('loc_x').options[document.getElementById('loc_x').selectedIndex].text
