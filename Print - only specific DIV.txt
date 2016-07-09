@@ -1,0 +1,46 @@
+<script language="javascript">
+var browser = navigator.userAgent;
+function print_me(idx)
+{
+    //window.print();
+
+    innerX = document.getElementById(idx).innerHTML;
+
+    iframe = document.getElementById('if_print');
+
+    //iframe = document.createElement('IFRAME');
+    //iframe.setAttribute('style', 'position:absolute;width:0px;height:0px;left:-500px;top:-500px;');
+
+    //x_bef = document.getElementById('f1');
+    //x_bef.parentNode.insertBefore(iframe, x_bef);
+
+    if_doc = iframe.contentWindow.document;
+    if_doc.write(innerX);
+    if_doc.close();
+
+    iframe.contentWindow.focus();
+
+    if(browser.indexOf('MSIE')>=0){
+    iframe.contentWindow.document.execCommand('print', false, null);
+    }
+    else{
+    iframe.contentWindow.print();
+    }
+
+    //alert('Please Wait ...');
+    //window.setTimeout(x_bef.parentNode.removeChild(iframe), 3000);
+    //x_bef.parentNode.removeChild(iframe);
+}//end func...
+</script>
+
+
+<div style="padding-top:20px; cursor:pointer; width:60px; height:85px; text-align:left; clear:left; float:left;"
+onclick="print_me('center-l');">
+<img src="images/print2.png" border="none" />&nbsp;
+<b>PRINT&nbsp;THIS</b>
+</div>
+
+<div style="width:0px; height:0px;">
+<iframe id="if_print" style="position:absolute;width:0px;height:0px;left:-500px;top:-500px;"></iframe>
+<div id="f1">&nbsp;</div>
+</div>

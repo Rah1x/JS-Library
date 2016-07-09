@@ -1,0 +1,27 @@
+<style media="print">
+.no_print{display:none !important;}
+
+div, span, a, i, b{font-size:15px !important;}
+.datagrid{border-left:none !important; font-size:15px;}
+.datagrid td{border-bottom:none; border-right:none; font-size:15px;}
+.datagrid th{font-weight:bold; font-size:17px; border:1px solid #E9E9E9;}
+.empty{height:30px; border:none !important;}
+.noinfo-table td{border-bottom:1px dotted #EdEdEd !important; font-size:15px;}
+.label{font-weight:bold; border-left:none !important; font-size:15px; width:200px !important;}
+.val{border-right:none !important; border-left:1px solid #E9E9E9 !important; font-size:15px;}
+.no_right{border-right:none !important;}
+</style>
+
+
+<script>
+function print_me(idx)
+{
+    if(browser.indexOf('MSIE')>=0){
+    document.execCommand('print', false, null);
+    }
+    else{
+    window.print();
+    }
+
+}//end func...
+</script>
