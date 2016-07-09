@@ -1,0 +1,25 @@
+////////put at the end of HEAD
+
+<!-- For Syntax Highlighting -->
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css" />
+<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
+<script>
+function styleCode()
+{
+    if (typeof disableStyleCode != 'undefined') { return; }
+
+    var a = false;
+
+    $('code').each(function() {
+    if (!$(this).hasClass('prettyprint')) {
+    $(this).addClass('prettyprint');
+    a = true;
+    }
+    });
+
+    if (a) { prettyPrint(); }
+}
+
+$(function() {styleCode();});
+</script>
