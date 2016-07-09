@@ -1,0 +1,1 @@
+num = Math.floor(M + (1+N-M)*Math.random())

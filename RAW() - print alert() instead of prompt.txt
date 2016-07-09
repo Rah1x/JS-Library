@@ -1,0 +1,25 @@
+<div id="temp2"></div>
+<script>
+/**
+# function: raw
+# Purpose: Alternate of Alert() - by printing instead of prompt
+**/
+function raw(txt)
+{
+    var show = '';
+    for(ff=0; ff<arguments.length; ff++)
+    show += arguments[ff]+', <br>';
+
+    show = show.replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+'<br>'+'$2');
+    //document.getElementById('temp2').innerHTML = show;
+    document.write(show);
+}//end func...
+</script>
+
+=======================
+[USAGE]
+raw([textactionbar_loaded, cur_insertion_area, textbar_chk]);
+
+or simply
+
+raw('1');
