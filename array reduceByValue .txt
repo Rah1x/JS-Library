@@ -1,0 +1,22 @@
+function reduceByValue(arrayName, val, reset)
+{
+    //* arrayName = array
+    //* val = value to search and remove
+    //* reset = reset keys of array. Equivalent to array_values of php
+
+    if(typeof(reset) == "undefined") reset = 0;
+
+    var x;
+    var tmpArray = new Array();
+    for(x in arrayName)
+    {
+        if(arrayName[x]!=val)
+        {
+            if(reset!=0)
+            tmpArray[tmpArray.length] = arrayName[x];
+            else
+            tmpArray[x] = arrayName[x];
+        }
+    }
+    return tmpArray;
+}//end func...........
