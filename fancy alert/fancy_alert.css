@@ -1,0 +1,75 @@
+.popup_bdy {
+    font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height:21px;
+	color:#000000;
+    font-weight: 400;
+    padding: 15px 15px;
+}
+
+.pop_slim {
+    padding: 0;
+}
+
+.pop_slim .btn_lst{
+    margin-top:5px;
+    padding-bottom:5px;
+}
+
+.popup_bdy img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 0;
+}
+
+.popup_bdy .hdx {
+    padding: 10px 10px;
+    border-radius: 5px 5px 0 0;
+    font-size: 17px;
+}
+
+.pop_slim .hdx {
+    padding: 4px 9px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.popup_bdy .content {
+    padding: 25px 0px 0;
+}
+
+.pop_slim label {
+    font-size:14px;
+}
+
+.pop_slim .content {
+    padding: 10px 0px 0;
+}
+
+.pop_slim .cont_r{
+    color:#C83D3D;
+}
+
+.pop_slim .blue_btn {
+    height: 25px;
+    line-height: 17px;
+    padding: 0 7px !important;
+    margin-right:2px;
+    font-weight:normal;
+    font-size:13px;
+}
+
+.pop_tp_Error .content label,
+.pop_tp_error .content label{
+    /*color:#BC272D;*/
+    display:inline-block;
+    background:#FCEFEF;
+    padding:1px 5px;
+    border-radius: 3px;
+}
+
+.fbox_pop_Error,
+.fbox_pop_error{
+    box-shadow:0px 10px 25px rgba(102, 29, 29, 0.5);
+}
