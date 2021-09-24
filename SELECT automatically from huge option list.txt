@@ -1,0 +1,7 @@
+<script>document.getElementById('category_id').value='<?php echo $empt['category_id']; ?>';</script>
+
+
+--------------------------------------------------------------
+if (logicsol.recTerminal.selectedIndex == 1){
+      logicsol.terminal.value = "Forward Express\nC/o Atlanta Packaging Inc\n1619 Laurel Ave N.W\nAtlanta, GA 30318\nTel # 404 355 4609";
+    }

@@ -1,0 +1,13 @@
+function toggle_div(caller, div_id)
+{
+    if(caller.checked) {
+    document.getElementById(div_id).style.display='';
+    } else {
+    document.getElementById(div_id).style.display='none';
+    }
+
+}//end func...
+
+=====================
+
+<input type="checkbox" name="update_acc_info" id="update_acc_info" value="1" onclick="toggle_div(this, 'acc_info_div');" />

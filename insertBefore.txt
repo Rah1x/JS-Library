@@ -1,0 +1,38 @@
+<script language="javascript">
+if(navigator.appName.search(/Microsoft/)>=0)
+{
+	insert = document.createElement('<div id="delete_<?php echo $unique; ?>">');
+}
+else
+{
+	insert = document.createElement('div');
+	insert.setAttribute('id', 'delete_<?php echo $unique; ?>');
+}
+
+x_bef = document.getElementById('f1');
+x_bef.insertBefore(insert, null);
+
+innerX='ssdfsdfsd';
+
+insert.innerHTML = innerX;
+</script>
+
+=====================================
+[FBML]
+insert = document.createElement('div');
+insert.setId('dummy_1');	
+x_bef = document.getElementById('center');
+x_bef.appendChild(insert);
+insert.setInnerFBML(page_fbml_1);
+
+
+====================================
+[2010]
+insert = document.createElement('div');
+insert.setAttribute('id', 'delete_<?php echo $unique; ?>');
+x_bef = document.getElementById('f1');
+x_bef.parentNode.insertBefore(insert, x_bef);
+x_bef.parentNode.insertBefore(insert, x_bef.nextSibling); //insert after
+insert.innerHTML = innerX;
+
+http://reference.sitepoint.com/javascript/Node/insertBefore

@@ -1,0 +1,21 @@
+<script>
+function swi_fields(fld, def_text, dyn)
+{
+    if(dyn=='focus')
+    {
+        if(fld.value==def_text)
+        {
+            fld.value='';
+        }
+    }
+    else if(dyn=='blur')
+    {
+        if(fld.value=='')
+        {
+            fld.value = def_text;
+        }
+    }
+}//end func....
+</script>
+
+<input name="search" type="text" id="search" value="Search"  onfocus="swi_fields(this, 'Search', 'focus');"  onblur="swi_fields(this, 'Search', 'blur');">

@@ -1,0 +1,32 @@
+var total = <?php echo $i--; ?>;
+function toogle_div(div_i, cur)
+{
+for(ii=1; ii<=total; ii++)
+{
+    var d = document.getElementById(div_i+''+ii);
+
+    if(d!=null)
+    d.style.display='none';
+}//end for...
+
+if(typeof(cur) != "undefined")
+document.getElementById(div_i+''+cur).style.display='';
+
+}//end func....
+
+===========================================
+
+function div_tog(val, div_sh)
+{
+    if(val==1)
+    {
+        document.getElementById(div_sh).style.display='';
+    }
+    else
+    {
+        document.getElementById(div_sh).style.display='none';
+    }
+}//end func...
+
+//USAGE
+onchange="if(this.value!='') {div_tog(this.value, 'slider_div');}"
