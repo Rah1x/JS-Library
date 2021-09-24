@@ -1,0 +1,9 @@
+/* check if date2= > date 1 */
+function compare_date(dt_1, dt_2)
+{
+    var date_1 = new Date(dt_1);
+    var date_2 = new Date(dt_2);
+
+    return ((date_2.getTime()>=date_1.getTime()));
+
+}//end func..

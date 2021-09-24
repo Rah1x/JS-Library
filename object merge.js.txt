@@ -1,0 +1,2 @@
+var menuRoutes2 = Object.assign({loginScreen: {screen: loginScreen}}, menuRoutes); //object only
+var navitems2 = [{name:'Login', icon: "power-settings-new", nav: 'loginScreen'}].concat(navitems); //array of objects

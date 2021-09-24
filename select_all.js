@@ -1,34 +1,24 @@
 function select_all(sel, fld)
 {
-    var chk_email_all = document.getElementsByName(fld);
-    //alert(chk_email_all.length);
-
-    for(var i=0; i<chk_email_all.length; i++)
+    var chk_all = document.getElementsByName(fld);
+    for(var i=0; i<chk_all.length; i++)
     {
-        if(chk_email_all[i].style.display!='none')
-        chk_email_all[i].checked=sel;
+        if(chk_all[i].style.display!='none')
+        chk_all[i].checked=sel;
     }
-
 }//end func...
 
-
 $(document).ready(function(){
-$('.select_all').click(function(event){
-    event.preventDefault();
 
-    var cur = $(this).html();
-    if(cur.search(/Select All/i)>0){
-    select_all(true, del_field);
-    $(this).html("&laquo;Select None&raquo;");
-    }else{
-    select_all(false, del_field);
-    $(this).html("&laquo;Select All&raquo;");
-    }
-});
+    $('.datagrid td input[name=RecordID\\[\\]]').prop('checked', false); // prevent auto complete of checkboxes forcibly
+
+    $('.select_all').click(function(event){
+    select_all($(this).prop('checked'), del_fieldx);
+    });
 
 });
-
 
 //#- [USAGE]
-//#/1) del_field must be set before this script is called
-//#/2) <script>var del_field='del_notif[]';</script><script type="text/javascript" src="assets/js/select_all.js"></script>
+//#/1) del_fieldx must be set before this script is called
+//#/2) `.select_all` field must be a checkbox (like in gmail)
+//#/2) <script>var del_fieldx='del_notif[]';</script><script type="text/javascript" src="assets/js/select_all.js"></script>

@@ -1,0 +1,34 @@
+function convertDate(date)
+{
+    var dateTimeParts = date.split(' ');
+
+    // # this assumes time format HAS SPACE between time and am/pm marks.
+    if(dateTimeParts[2] != undefined){
+    dateTimeParts[1]+=dateTimeParts[2];
+    }
+
+    var theTime = dateTimeParts[1];
+    var ampm = theTime.replace(/[0-9:]/g,'').trim();
+    var time = theTime.replace(/[[^a-zA-Z]/g,'').trim();
+
+    if(ampm == 'pm')
+    {
+        time_comp = time.split(':');
+
+        // # if time is 12:00, don't add 12
+        if(time[0] == 12) {
+            time = parseInt(time_comp[0]) + ':' + time_comp[1];
+        } else {
+            time = (parseInt(time_comp[0])+12) + ':' + time_comp[1];
+        }
+    }
+
+    time = time+':00';
+    var dt_comp = dateTimeParts[0].split("/").reverse();
+
+    var date = new Date(dt_comp.join('-')+'T'+time.trim()+'Z');
+    //console.log(dt_comp, time, ampm, date);
+
+    return date;
+
+}//end func...

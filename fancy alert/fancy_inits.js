@@ -1,5 +1,18 @@
 $(document).ready(function() {
-	$(".fbox").fancybox({
+
+    $.fancy_width_set = function(def)
+    {
+        var f_ancy_width = def;
+        if($(window).width()<(def+70)){
+        f_ancy_width = $(window).width()-80;}
+
+        //console.log(def+'-'+f_ancy_width);
+        return f_ancy_width;
+    }
+    $.fancy_width = $.fancy_width_set(450);
+
+
+    $(".fbox").fancybox({
 	    minWidth    : 230,
 	    minHeight   : 300,
 		maxWidth	: 950,
@@ -11,9 +24,9 @@ $(document).ready(function() {
 	});
 
     $(".fbox_a").fancybox({
-	    minWidth    : 230,
+	    minWidth    : 250,
 	    minHeight   : 300,
-		maxWidth	: 950,
+		maxWidth	: '90%',
 		maxHeight	: 600,
 		autoSize	: true,
         fitToView	: true,
@@ -28,9 +41,9 @@ $(document).ready(function() {
 	});
 
     $(".fbox_if").fancybox({
-	    minWidth    : 230,
-	    minHeight   : 300,
-		maxWidth	: 700,
+	    minWidth    : $.fancy_width_set(300),
+        minHeight   : 300,
+    	maxWidth	: $.fancy_width_set(1200)-50,
 		maxHeight	: 600,
 		autoSize	: true,
         fitToView	: true,
@@ -39,96 +52,63 @@ $(document).ready(function() {
 
         beforeLoad: function(){
             this.href+='&ro=1';
-        }
-	});
-
-    $(".fbox_max").fancybox({
-        minWidth    : 20,
-        minHeight   : 20,
-    	maxWidth	: 950,
-    	maxHeight	: 600,
-        autoSize	: true,
-        fitToView	: true,
-        openEffect	: 'elastic',
-    	closeEffect	: 'elastic',
-        'overlayShow': true,
-
-        'beforeShow': function(){
-            $(window).on({
-                'resize.fancybox' : function(){
-                    $.fancybox.update();
-                }
-            });
-         },
-
-         'afterClose': function(){
-              $(window).off('resize.fancybox');
-         },
-    });
-
-
-    $.windowsize = $(window).width();
-    $(".fbox_video").fancybox({
-        'beforeShow': function(){
-            $(window).on({
-                'resize.fancybox' : function(){
-                    $.fancybox.update();
-                }
-            });
-         },
-
-         afterLoad: function ()
-         {
-            $.extend(this, {
-                type    : 'html',
-                content : '<video id="home_vd" preload="metadata" controls width="auto" height="auto" style="border-radius:2px; width:100% !important; height:auto !important">'
-                +'<source src="'+this.href+'" type="video/mp4" />'
-                +'Your browser does not support the video tag.</video>'
-            });
         },
 
-        'afterShow': function()
-         {
-            if($.windowsize<1020){
-                $('.fancybox-close').css('top', '0');
-                $('.fancybox-close').css('right', '0');
+        beforeShow: function(){
+            if(typeof($(this.element).data('fancy_custom_width'))!='undefined'){
+            this.maxWidth = $(this.element).data('fancy_custom_width');
             }
 
-            var hvd = document.getElementById("home_vd");
-            hvd.addEventListener("loadedmetadata", function(e){
-                //var widthx = this.videoWidth;
-                //alert(dump($.fancybox.width));
-                $.fancybox.toggle();
-                $.fancybox.toggle();
-            }, false);
-         },
-
-         'afterClose': function(){
-              $(window).off('resize.fancybox');
-         },
-
-         margin     : 3,
-         padding    : 0,
-         minWidth	: 200,
-         maxWidth	: 960,
-
-         fitToView  : true,
-         closeClick : false,
-         openEffect	: 'fade',
-    	 closeEffect: 'elastic',
-         closeBtn   : 'true',
-         scrolling  : 'no',
-    });
-
+            if(typeof($(this.element).data('fancy_custom_height'))!='undefined'){
+            this.minHeight = $(this.element).data('fancy_custom_height');
+            }
+        }
+	});
 
     $(".fbox_img").fancybox({
 	    minHeight   : 5,
 		minWidth    : 5,
-        maxWidth	: 950,
+        maxWidth	: '90%',
 		maxHeight	: 600,
 		autoSize	: true,
         fitToView	: false,
         openEffect	: 'elastic',
 		closeEffect	: 'elastic',
+        padding : 0
+	});
+
+    $(".fbox_grid_details_wide").fancybox({
+	    minWidth    : $.fancy_width_set(700),
+	    minHeight   : 10,
+		maxWidth	: $.fancy_width_set(700),
+		maxHeight	: 600,
+		autoSize	: true,
+        fitToView	: false,
+        openEffect	: 'elastic',
+		closeEffect	: 'elastic',
+
+        prevEffect	: 'none',
+		nextEffect	: 'none',
+        helpers	: {
+			buttons	: {}
+		}
+	});
+
+
+    $(".fbox_grid_details").fancybox({
+	    minWidth    : $.fancy_width_set(450),
+	    minHeight   : 10,
+		maxWidth	: $.fancy_width_set(450),
+		maxHeight	: 600,
+		autoSize	: true,
+        fitToView	: false,
+        openEffect	: 'elastic',
+		closeEffect	: 'elastic',
+
+        prevEffect	: 'none',
+		nextEffect	: 'none',
+        helpers	: {
+			buttons	: {}
+		}
 	});
 });

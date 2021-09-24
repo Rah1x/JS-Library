@@ -15,3 +15,16 @@ function r_format_jstr(in_s)
 	out_s = out_s.replace('&#39;', "'");
     return out_s;
 }//end func....
+
+
+function unformat_str(v)
+{
+    v = v.replace(/\&lt\;/g, '<');
+    v = v.replace(/\&gt\;/g, '>');
+    v = v.replace(/\&quot\;/g, '"');
+    v = v.replace(/\&\#39\;/g, "'");
+    v = v.replace(/\&\#x28\;/g, "(");
+    v = v.replace(/\&\#x29\;/g, ")");
+    v = v.replace(/\&\#92\;/g, "\\");
+    return v;
+}
